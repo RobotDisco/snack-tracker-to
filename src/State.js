@@ -8,7 +8,7 @@ export class Employee {
 	this.name = name;
 	this.balance = 0.0;
     }
-}
+};
 
 export class Snack {
     name: string;
@@ -18,7 +18,7 @@ export class Snack {
 	this.name = name;
 	this.price = price;
     }
-}
+};
 
 export let employees = [
     new Employee('Chris Spahr'),
