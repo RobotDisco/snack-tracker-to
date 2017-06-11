@@ -20,6 +20,16 @@ class App extends Component {
     };
     props: Props;
 
+    _selectEmployee: () => void
+    _selectEmployee(id: number) {
+	this.setState({selectedEmployee: id});
+    };
+
+    _selectSnack: () => void
+    _selectSnack(id: number) {
+	this.setState({selectedSnack: id});
+    };
+
     constructor(props: Props) {
 	super(props);
 
@@ -29,6 +39,9 @@ class App extends Component {
 	    selectedEmployee: null,
 	    selectedSnack: null
 	};
+
+	this._selectEmployee = this._selectEmployee.bind(this);
+	this._selectSnack = this._selectSnack.bind(this);
     }
 
     render() {
@@ -42,10 +55,10 @@ class App extends Component {
 		To get started, edit <code>src/App.js</code> and save to reload.
 	      </p>
 	      <div>
-		<Employees employees={this.state.employees} />
+		<Employees employees={this.state.employees} cb={this._selectEmployee} />
 	      </div>
 	      <div>
-		<Snacks snacks={this.state.snacks} />
+		<Snacks snacks={this.state.snacks} cb={this._selectSnack} />
 	      </div>
 	      <div>
 		<Buy enabled={this.state.selectedSnack != null && this.state.selectedEmployee != null}/>
