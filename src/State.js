@@ -20,14 +20,14 @@ export class Snack {
     }
 };
 
-export let employees = [
+export let employees = () => [
     new Employee('Chris Spahr', 0),
     new Employee('Phil Cairns', 0),
     new Employee('Phil Nicolcev', 0),
     new Employee("Gaelan D'costa", 20)
 ];
 
-export let snacks = [
+export let snacks = () => [
     new Snack('Perrier', 2.00),
     new Snack('Dr. Pepper', 0.50),
     new Snack('Soylent', 2.00)
