@@ -48,7 +48,7 @@ class App extends Component {
 		<Snacks snacks={this.state.snacks} />
 	      </div>
 	      <div>
-		<Buy />
+		<Buy enabled={this.state.selectedSnack != null && this.state.selectedEmployee != null}/>
 	      </div>
 	    </div>
 	);

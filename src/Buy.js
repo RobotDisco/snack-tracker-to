@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Buy extends Component {
     render() {
 	return (
-	    <button>Buy</button>
+	    <button disabled={!this.props.enabled}>Buy</button>
 	);
     };
 }
