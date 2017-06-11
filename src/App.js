@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Employees from './Employees.js';
-import { employees } from './State.js';
+import Snacks from './Snacks.js';
+import Buy from './Buy.js';
+import { employees, snacks } from './State.js';
 
 class App extends Component {
   render() {
@@ -17,6 +19,12 @@ class App extends Component {
 	</p>
 	<div>
 	  <Employees employees={employees} />
+	</div>
+	<div>
+	  <Snacks snacks={snacks} />
+	</div>
+	<div>
+	  <Buy />
 	</div>
       </div>
     );
