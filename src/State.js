@@ -4,9 +4,9 @@ export class Employee {
     name: string;
     balance: number;
 
-    constructor(name: string) {
+    constructor(name: string, balance: number) {
 	this.name = name;
-	this.balance = 0.0;
+	this.balance = balance;
     }
 };
 
@@ -21,10 +21,10 @@ export class Snack {
 };
 
 export let employees = [
-    new Employee('Chris Spahr'),
-    new Employee('Phil Cairns'),
-    new Employee('Phil Nicolcev'),
-    new Employee("Gaelan D'costa")
+    new Employee('Chris Spahr', 0),
+    new Employee('Phil Cairns', 0),
+    new Employee('Phil Nicolcev', 0),
+    new Employee("Gaelan D'costa", 20)
 ];
 
 export let snacks = [
