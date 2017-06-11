@@ -4,7 +4,7 @@ import Employee from './Employee';
 class Employees extends Component {
     render() {
 	let rows = this.props.employees.map(employee => (
-	    <Employee name={employee.name} balance={employee.balance} />
+	    <Employee key={employee.id} name={employee.name} balance={employee.balance} />
 	));
 
 	return (

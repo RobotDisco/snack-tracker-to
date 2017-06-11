@@ -4,7 +4,7 @@ import Snack from './Snack';
 class Snacks extends Component {
     render() {
 	let rows = this.props.snacks.map(snack => (
-	    <Snack name={snack.name} price={snack.price} />
+	    <Snack key={snack.id} name={snack.name} price={snack.price} />
 	));
 
 	return (
