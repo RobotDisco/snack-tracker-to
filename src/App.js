@@ -9,6 +9,8 @@ import Buy from './Buy.js';
 import { employees, snacks, Employee, Snack } from './State.js';
 
 type Props = {};
+type employeeId = number;
+type snackId = number;
 
 class App extends Component {
     state: {
@@ -30,6 +32,14 @@ class App extends Component {
 	this.setState({selectedSnack: id});
     };
 
+    _buySnack: () => void
+    _buySnack(employeeId: employeeId, snackId: snackId) {
+	let newEmployees = this.state.employees;
+	newEmployees[employeeId].balance -= this.state.snacks[snackId].price;
+
+	this.setState({employees: newEmployees});
+    };
+
     constructor(props: Props) {
 	super(props);
 
@@ -42,6 +52,7 @@ class App extends Component {
 
 	this._selectEmployee = this._selectEmployee.bind(this);
 	this._selectSnack = this._selectSnack.bind(this);
+	this._buySnack = this._buySnack.bind(this);
     }
 
     render() {
@@ -61,7 +72,7 @@ class App extends Component {
 		<Snacks snacks={this.state.snacks} cb={this._selectSnack} />
 	      </div>
 	      <div>
-		<Buy enabled={this.state.selectedSnack != null && this.state.selectedEmployee != null}/>
+		<Buy cb={this._buySnack} employeeId={this.state.selectedEmployee} snackId={this.state.selectedSnack} enabled={this.state.selectedSnack != null && this.state.selectedEmployee != null}/>
 	      </div>
 	    </div>
 	);
