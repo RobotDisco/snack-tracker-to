@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 
 var config = {
-    apiKey: "<CHANGEME>",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "snack-tracker-2.firebaseapp.com",
     databaseURL: "https://snack-tracker-2.firebaseio.com",
     projectId: "snack-tracker-2",
