@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+/* @flow */
 
-class Snack extends Component {
-    render() {
-	return (
-	    <tr onClick={() => this.props.cb(this.props.id)}>
-	      <td>{this.props.name}</td>
-	      <td>{this.props.price}</td>
-	    </tr>
-	);
+export class Snack {
+    id: number;
+    name: string;
+    price: number;
+
+    constructor(id: number, name: string, price: number) {
+	this.id = id;
+	this.name = name;
+	this.price = price;
     }
-}
+};
 
 export default Snack;

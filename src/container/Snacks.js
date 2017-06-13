@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Snack from './Snack';
+import Snack from '../component/Snack';
 
 class Snacks extends Component {
     render() {

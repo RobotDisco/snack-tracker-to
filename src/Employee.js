@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+/* @flow */
 
-class Employee extends Component {
-    render() {
-	return (
-	    <tr onClick={(e) => this.props.cb(this.props.id)}>
-	      <td>{this.props.name}</td>
-	      <td>{this.props.balance}</td>
-	    </tr>
-	);
+export class Employee {
+    id: number;
+    name: string;
+    balance: number;
+
+    constructor(id: number, name: string, balance: number) {
+	this.id = id;
+	this.name = name;
+	this.balance = balance;
     }
-}
+};
 
 export default Employee;

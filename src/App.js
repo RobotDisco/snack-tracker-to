@@ -3,10 +3,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Employees from './Employees.js';
-import Snacks from './Snacks.js';
-import Buy from './Buy.js';
-import { employees, snacks, Employee, Snack } from './State.js';
+import Employees from './container/Employees.js';
+import Snacks from './container/Snacks.js';
+import Buy from './component/Buy.js';
+import Employee from './Employee.js';
+import Snack from './Snack.js';
 import firebase from './firebase';
 
 type Props = {};

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Employee from './Employee';
+import Employee from '../component/Employee';
 
 class Employees extends Component {
     render() {
