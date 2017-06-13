@@ -7,6 +7,7 @@ import Employees from './Employees.js';
 import Snacks from './Snacks.js';
 import Buy from './Buy.js';
 import { employees, snacks, Employee, Snack } from './State.js';
+import firebase from './firebase';
 
 type Props = {};
 type employeeId = number;
@@ -21,6 +22,8 @@ class App extends Component {
 
     };
     props: Props;
+    fbEmployeesRef: any; // No idea what this is
+    fbSnacksRef: any; // No idea what this is
 
     _selectEmployee: () => void
     _selectEmployee(id: number) {
@@ -34,18 +37,18 @@ class App extends Component {
 
     _buySnack: () => void
     _buySnack(employeeId: employeeId, snackId: snackId) {
-	let newEmployees = this.state.employees;
-	newEmployees[employeeId].balance -= this.state.snacks[snackId].price;
+	var newBalance = this.state.employees[employeeId].balance;
+	newBalance -= this.state.snacks[snackId].price;
 
-	this.setState({employees: newEmployees});
+	this.fbEmployeesRef.child(employeeId).update({balance: newBalance});
     };
 
     constructor(props: Props) {
 	super(props);
 
 	this.state = {
-	    employees: employees(),
-	    snacks: snacks(),
+	    employees: [],
+	    snacks: [],
 	    selectedEmployee: null,
 	    selectedSnack: null
 	};
@@ -53,6 +56,32 @@ class App extends Component {
 	this._selectEmployee = this._selectEmployee.bind(this);
 	this._selectSnack = this._selectSnack.bind(this);
 	this._buySnack = this._buySnack.bind(this);
+    }
+
+    componentWillMount() {
+	this.fbEmployeesRef = firebase.database().ref("employees");
+	this.fbSnacksRef = firebase.database().ref("snacks");
+
+	this.fbSnacksRef.on('value', (dataSnapshot) => {
+	    let snacks = dataSnapshot.val().map((item) => {
+		return new Snack(item.id, item.name, item.price);
+	    });
+
+	    this.setState({snacks: snacks});
+	});
+
+	this.fbEmployeesRef.on('value', (dataSnapshot) => {
+	    let employees = dataSnapshot.val().map((item) => {
+		return new Employee(item.id, item.name, item.balance);
+	    });
+
+	    this.setState({employees: employees});
+	});
+    }
+
+    componentWillUnmount() {
+	this.fbEmployeesRef.off();
+	this.fbSnacksRef.off();
     }
 
     render() {

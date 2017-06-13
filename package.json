@@ -1,25 +1,27 @@
 {
-    "name": "snack-tracker-to",
-    "version": "0.1.0",
-    "private": true,
-    "homepage": "https://robotdisco.github.io/snack-tracker-to",
-    "license": "MIT",
-    "dependencies": {
-	"react": "^15.5.4",
-	"react-dom": "^15.5.4"
-    },
-    "devDependencies": {
-	"flow-bin": "^0.47.0",
-	"gh-pages": "^1.0.0",
-	"react-scripts": "1.0.7"
-    },
-    "scripts": {
-	"start": "react-scripts start",
-	"build": "react-scripts build",
-	"test": "react-scripts test --env=jsdom",
-	"eject": "react-scripts eject",
-	"flow": "flow",
-	"predeploy": "npm run build",
-	"deploy": "gh-pages -d build"
-    }
+			"name": "snack-tracker-to",
+			"version": "0.1.0",
+			"private": true,
+			"homepage": "https://robotdisco.github.io/snack-tracker-to",
+			"license": "MIT",
+			"dependencies": {
+						"firebase": "^4.1.2",
+						"react": "^15.5.4",
+						"react-dom": "^15.5.4",
+						"reactfire": "^1.0.0"
+			},
+			"devDependencies": {
+						"flow-bin": "^0.47.0",
+						"gh-pages": "^1.0.0",
+						"react-scripts": "1.0.7"
+			},
+			"scripts": {
+						"start": "react-scripts start",
+						"build": "react-scripts build",
+						"test": "react-scripts test --env=jsdom",
+						"eject": "react-scripts eject",
+						"flow": "flow",
+						"predeploy": "npm run build",
+						"deploy": "gh-pages -d build"
+			}
 }
